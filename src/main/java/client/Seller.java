@@ -84,7 +84,7 @@ public class Seller {
 
     public static void main (String[] args ) throws IOException {
         String username = "SELLER";
-        Socket socket = new Socket("192.168.1.6", 8080);
+        Socket socket = new Socket("192.168.1.11", 8080);
         Seller seller = new Seller(socket, username);
         seller.listenForMessage();
         seller.sendMessage();
