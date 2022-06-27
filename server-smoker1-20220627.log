@@ -1,0 +1,42 @@
+Jun 27, 2022 2:12:21 PM common.logger.ActionLogger log
+INFO: Actor:[PaperBank] -> Acción:[Stock][2]
+Jun 27, 2022 2:12:21 PM common.logger.ActionLogger log
+INFO: Actor:[TobaccoBank] -> Acción:[Stock][1]
+Jun 27, 2022 2:12:21 PM common.logger.ActionLogger log
+INFO: Actor:[MatchesBank] -> Acción:[Stock][2]
+Jun 27, 2022 2:12:24 PM common.logger.ActionLogger log
+INFO: Actor:[PaperBank] -> Acción:[Stock][1]
+Jun 27, 2022 2:12:24 PM common.logger.ActionLogger log
+INFO: Actor:[TobaccoBank] -> Acción:[Stock][1]
+Jun 27, 2022 2:12:24 PM common.logger.ActionLogger log
+INFO: Actor:[MatchesBank] -> Acción:[Stock][2]
+Jun 27, 2022 2:12:27 PM common.logger.ActionLogger log
+INFO: Actor:[PaperBank] -> Acción:[Stock][1]
+Jun 27, 2022 2:12:27 PM common.logger.ActionLogger log
+INFO: Actor:[TobaccoBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:12:27 PM common.logger.ActionLogger log
+INFO: Actor:[MatchesBank] -> Acción:[Stock][2]
+Jun 27, 2022 2:12:39 PM common.logger.ActionLogger log
+INFO: Actor:[PaperBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:12:39 PM common.logger.ActionLogger log
+INFO: Actor:[TobaccoBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:12:39 PM common.logger.ActionLogger log
+INFO: Actor:[MatchesBank] -> Acción:[Stock][2]
+Jun 27, 2022 2:12:48 PM common.logger.ActionLogger log
+INFO: Actor:[Seller] -> Acción:[No inserto ingrediente]
+Jun 27, 2022 2:12:54 PM common.logger.ActionLogger log
+INFO: Actor:[PaperBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:12:54 PM common.logger.ActionLogger log
+INFO: Actor:[TobaccoBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:12:54 PM common.logger.ActionLogger log
+INFO: Actor:[MatchesBank] -> Acción:[Stock][1]
+Jun 27, 2022 2:13:00 PM common.logger.ActionLogger log
+INFO: Actor:[PaperBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:13:00 PM common.logger.ActionLogger log
+INFO: Actor:[TobaccoBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:13:00 PM common.logger.ActionLogger log
+INFO: Actor:[MatchesBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:13:12 PM common.logger.ActionLogger log
+INFO: Actor:[Seller] -> Acción:[No inserto ingrediente]
+Jun 27, 2022 2:13:21 PM common.logger.ActionLogger log
+INFO: Actor:[Seller] -> Acción:[No inserto ingrediente]

@@ -1,0 +1,64 @@
+Jun 27, 2022 2:21:19 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[recibe fósforos]
+Jun 27, 2022 2:21:19 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[No pudo armar el cigarro]
+Jun 27, 2022 2:21:22 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[recibe fósforos]
+Jun 27, 2022 2:21:22 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[No pudo armar el cigarro]
+Jun 27, 2022 2:21:25 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[recibe tabaco]
+Jun 27, 2022 2:21:25 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[No pudo armar el cigarro]
+Jun 27, 2022 2:21:28 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[recibe papel]
+Jun 27, 2022 2:21:28 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[Armando fósforos[infinitos] tabacos[0] papeles[0]]
+Jun 27, 2022 2:21:34 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:21:34 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[No pudo armar el cigarro]
+Jun 27, 2022 2:21:37 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:21:37 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[No pudo armar el cigarro]
+Jun 27, 2022 2:21:43 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[recibe tabaco]
+Jun 27, 2022 2:21:43 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[No pudo armar el cigarro]
+Jun 27, 2022 2:21:46 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:21:46 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[No pudo armar el cigarro]
+Jun 27, 2022 2:21:49 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:21:49 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[No pudo armar el cigarro]
+Jun 27, 2022 2:21:55 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:21:55 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[No pudo armar el cigarro]
+Jun 27, 2022 2:21:58 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:21:58 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[No pudo armar el cigarro]
+Jun 27, 2022 2:22:02 PM common.logger.ActionLogger log
+INFO: Actor:[Seller] -> Acción:[esta reponiendo]
+Jun 27, 2022 2:22:02 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[No pudo armar el cigarro]
+Jun 27, 2022 2:22:05 PM common.logger.ActionLogger log
+INFO: Actor:[Seller] -> Acción:[ya repuso]
+Jun 27, 2022 2:22:05 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[No pudo armar el cigarro]
+Jun 27, 2022 2:22:07 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[recibe papel]
+Jun 27, 2022 2:22:07 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[Armando fósforos[infinitos] tabacos[0] papeles[0]]
+Jun 27, 2022 2:22:13 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:22:13 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[No pudo armar el cigarro]
+Jun 27, 2022 2:22:16 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[recibe tabaco]
+Jun 27, 2022 2:22:16 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[No pudo armar el cigarro]

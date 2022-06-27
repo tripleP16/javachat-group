@@ -1,0 +1,38 @@
+Jun 27, 2022 2:12:21 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[recibe tabaco]
+Jun 27, 2022 2:12:24 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[recibe papel]
+Jun 27, 2022 2:12:27 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[recibe tabaco]
+Jun 27, 2022 2:12:30 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:12:33 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:12:39 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[recibe papel]
+Jun 27, 2022 2:12:42 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:12:45 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:12:51 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:12:54 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[recibe fósforos]
+Jun 27, 2022 2:12:54 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[Armando cigarro tabacos[infinitos] fósforos[0]papeles[1]]
+Jun 27, 2022 2:13:00 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[recibe fósforos]
+Jun 27, 2022 2:13:00 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[Armando cigarro tabacos[infinitos] fósforos[0]papeles[0]]
+Jun 27, 2022 2:13:06 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:13:09 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:13:15 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:13:18 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:13:24 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]
+Jun 27, 2022 2:13:27 PM common.logger.ActionLogger log
+INFO: Actor:[Smoker] -> Acción:[no recibe nada]

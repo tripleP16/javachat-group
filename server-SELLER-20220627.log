@@ -1,0 +1,52 @@
+Jun 27, 2022 2:21:19 PM common.logger.ActionLogger log
+INFO: Actor:[PaperBank] -> Acción:[Stock][2]
+Jun 27, 2022 2:21:19 PM common.logger.ActionLogger log
+INFO: Actor:[TobaccoBank] -> Acción:[Stock][2]
+Jun 27, 2022 2:21:19 PM common.logger.ActionLogger log
+INFO: Actor:[MatchesBank] -> Acción:[Stock][1]
+Jun 27, 2022 2:21:22 PM common.logger.ActionLogger log
+INFO: Actor:[PaperBank] -> Acción:[Stock][2]
+Jun 27, 2022 2:21:22 PM common.logger.ActionLogger log
+INFO: Actor:[TobaccoBank] -> Acción:[Stock][2]
+Jun 27, 2022 2:21:22 PM common.logger.ActionLogger log
+INFO: Actor:[MatchesBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:21:25 PM common.logger.ActionLogger log
+INFO: Actor:[PaperBank] -> Acción:[Stock][2]
+Jun 27, 2022 2:21:25 PM common.logger.ActionLogger log
+INFO: Actor:[TobaccoBank] -> Acción:[Stock][1]
+Jun 27, 2022 2:21:25 PM common.logger.ActionLogger log
+INFO: Actor:[MatchesBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:21:28 PM common.logger.ActionLogger log
+INFO: Actor:[PaperBank] -> Acción:[Stock][1]
+Jun 27, 2022 2:21:28 PM common.logger.ActionLogger log
+INFO: Actor:[TobaccoBank] -> Acción:[Stock][1]
+Jun 27, 2022 2:21:28 PM common.logger.ActionLogger log
+INFO: Actor:[MatchesBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:21:43 PM common.logger.ActionLogger log
+INFO: Actor:[PaperBank] -> Acción:[Stock][1]
+Jun 27, 2022 2:21:43 PM common.logger.ActionLogger log
+INFO: Actor:[TobaccoBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:21:43 PM common.logger.ActionLogger log
+INFO: Actor:[MatchesBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:21:53 PM common.logger.ActionLogger log
+INFO: Actor:[Seller] -> Acción:[No inserto ingrediente]
+Jun 27, 2022 2:22:02 PM common.logger.ActionLogger log
+INFO: Actor:[Seller] -> Acción:[[SELLER] repuso tabaco stock: [1]][1]
+Jun 27, 2022 2:22:02 PM common.logger.ActionLogger log
+INFO: Actor:[PaperBank] -> Acción:[Stock][1]
+Jun 27, 2022 2:22:02 PM common.logger.ActionLogger log
+INFO: Actor:[TobaccoBank] -> Acción:[Stock][1]
+Jun 27, 2022 2:22:02 PM common.logger.ActionLogger log
+INFO: Actor:[MatchesBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:22:07 PM common.logger.ActionLogger log
+INFO: Actor:[PaperBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:22:07 PM common.logger.ActionLogger log
+INFO: Actor:[TobaccoBank] -> Acción:[Stock][1]
+Jun 27, 2022 2:22:07 PM common.logger.ActionLogger log
+INFO: Actor:[MatchesBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:22:16 PM common.logger.ActionLogger log
+INFO: Actor:[PaperBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:22:16 PM common.logger.ActionLogger log
+INFO: Actor:[TobaccoBank] -> Acción:[Stock][0]
+Jun 27, 2022 2:22:16 PM common.logger.ActionLogger log
+INFO: Actor:[MatchesBank] -> Acción:[Stock][0]
