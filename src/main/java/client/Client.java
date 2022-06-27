@@ -240,9 +240,9 @@ public class Client {
 
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter your username: ");
+        System.out.println("Introduce un nombre de usuario para el fumador: ");
         String username = scanner.nextLine();
-        Socket socket = new Socket("localhost", 8080);
+        Socket socket = new Socket("192.168.1.6", 8080);
         Client client = new Client(socket, username);
         client.listenForMessage();
         client.sendMessage();
