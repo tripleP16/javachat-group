@@ -28,20 +28,20 @@ public class ActionLogger {
         logger.addHandler(fileHandler);
     }
     public void log(String actionName, Actor actor, int quantity) {
-        logger.info("Actor:[" + actor.getName() + "] -> Acción:[" + actionName + "]" + "[" + quantity + "]");
+        logger.info("Actor:[" + actor.getName() + "] -> Accion:[" + actionName + "]" + "[" + quantity + "]");
     }
 
     public void log(String actionName, Actor actor) {
-        logger.info("Actor:[" + actor.getName() + "] -> Acción:[" + actionName + "]");
+        logger.info("Actor:[" + actor.getName() + "] -> Accion:[" + actionName + "]");
     }
 
     public void log(String actionName) {
-        logger.info("Actor:[" + "] -> Acción:[" + actionName + "]");
+        logger.info("Actor:[" + "] -> Accion:[" + actionName + "]");
     }
 
     public void log(String actionName, Actor... actors) {
         for (Actor actor : actors) {
-            logger.info("Actor:[" + actor.getName() + "] -> Acción:[" + actionName + "]");
+            logger.info("Actor:[" + actor.getName() + "] -> Accion:[" + actionName + "]");
         }
     }
 }

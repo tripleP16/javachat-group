@@ -170,7 +170,7 @@ public class ClientHandler implements Runnable {
 //                System.out.println(Server.bankMatch.matches.size());
 //                System.out.println("El vendedor repuso 1 fósforo");
                 actionLogger.log("[" + clientUsername +
-                        "] repuso fósforo stock: [" + Server.bankMatch.getSize() +
+                        "] repuso fosforo stock: [" + Server.bankMatch.getSize() +
                         "]", sellerActor, 1);
             }
             case 1 -> {

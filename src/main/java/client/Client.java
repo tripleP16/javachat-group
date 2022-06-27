@@ -92,40 +92,39 @@ public class Client {
                     msgFromGroupChat = bufferedReader.readLine();
                     messageReceived = msgFromGroupChat;
                     switch (msgFromGroupChat) {
-                        case "WAIT":
+                        case "WAIT" -> {
                             check = true;
 //                            System.out.println("El vendedor esta reponiendo");
                             actionLogger.log("esta reponiendo", new SellerActor());
-                            break;
-                        case "READY":
+                        }
+                        case "READY" -> {
                             check = false;
 //                            System.out.println("El vendedor ya repuso");
                             actionLogger.log("ya repuso", new SellerActor());
-                            break;
-                        case "-1":
+                        }
+                        case "-1" -> {
                             tries++;
 //                            System.out.println("No recibe nada");
                             actionLogger.log("no recibe nada", new SmokerActor());
-                            break;
-                        case "0":
+                        }
+                        case "0" -> {
                             bankMatch.pushMatch(new Match());
 //                            System.out.println("Recibe fosforos");
-                            actionLogger.log("recibe fósforos", new SmokerActor());
+                            actionLogger.log("recibe fosforos", new SmokerActor());
                             tries = 0;
-                            break;
-                        case "1":
+                        }
+                        case "1" -> {
                             bankPaper.pushPaper(new Paper());
 //                            System.out.println("Recibe papel");
                             actionLogger.log("recibe papel", new SmokerActor());
                             tries = 0;
-                            break;
-                        case "2":
+                        }
+                        case "2" -> {
                             bankTobacco.pushTobacco(new Tobacco());
 //                            System.out.println("Recibe tabaco");
                             actionLogger.log("recibe tabaco", new SmokerActor());
                             tries = 0;
-                            break;
-
+                        }
                     }
                     buildCigarette();
 
@@ -143,10 +142,13 @@ public class Client {
             case "TOBACCO":
                 if (bankPaper.papers.size() > 0 && bankMatch.matches.size() > 0) {
                     Cigarrate cigarrate = new Cigarrate(new Tobacco(), new Match(), new Paper());
+                    actionLogger.log("Armando cigarro con tabacos[infinitos] " +
+                            "fosforos[" + bankMatch.getSize() + "] " +
+                            "papeles[" + bankPaper.getSize() + "]", new SmokerActor());
                     bankMatch.popMatch();
                     bankPaper.popPaper();
-                    actionLogger.log("Armando cigarro tabacos[infinitos] " +
-                            "fósforos[" + bankMatch.getSize() + "] " +
+                    actionLogger.log("Le quedan tabacos[infinitos] " +
+                            "fosforos[" + bankMatch.getSize() + "] " +
                             "papeles[" + bankPaper.getSize() + "]", new SmokerActor());
 
 //                    System.out.println("Cigarro armado le quedan infinitos tabacos, " +
@@ -154,36 +156,44 @@ public class Client {
 //                            " papeles");
                     smoke(cigarrate);
                 } else {
-                    System.out.println("No pudo armar el cigarro");
+//                    System.out.println("No pudo armar el cigarro");
+                    actionLogger.log("No pudo armar el cigarro", new SmokerActor());
                 }
                 break;
             case "PAPER":
                 if (bankTobacco.tobaccos.size() > 0 && bankMatch.matches.size() > 0) {
                     Cigarrate cigarrate = new Cigarrate(new Tobacco(), new Match(), new Paper());
+                    actionLogger.log("Armando cigarro con papeles[infinitos] " +
+                            "fosforos[" + bankMatch.getSize() + "] " +
+                            "tabacos[" + bankTobacco.getSize() + "]", new SmokerActor());
                     bankTobacco.popTobacco();
                     bankMatch.popMatch();
-                    actionLogger.log("Armando cigarro papeles[infinitos] " +
-                            "fósforos[" + bankMatch.getSize() + "] " +
+                    actionLogger.log("Le quedan papeles[infinitos] " +
+                            "fosforos[" + bankMatch.getSize() + "] " +
                             "tabacos[" + bankTobacco.getSize() + "]", new SmokerActor());
 //                    System.out.println("Cigarro armado le quedan infintos papeles, " +
 //                            bankMatch.matches.size() + " fosforos, " + bankTobacco.tobaccos.size() +
 //                            " tabacos");
                     smoke(cigarrate);
                 } else {
-                    System.out.println("No pudo armar el cigarro");
+//                    System.out.println("No pudo armar el cigarro");
+                    actionLogger.log("No pudo armar el cigarro", new SmokerActor());
                 }
                 break;
             case "MATCH":
                 if (bankTobacco.tobaccos.size() > 0 && bankPaper.papers.size() > 0) {
                     Cigarrate cigarrate = new Cigarrate(new Tobacco(), new Match(), new Paper());
+                    actionLogger.log("Armando cigarro con fosforos[infinitos] " +
+                            "tabacos[" + bankTobacco.getSize() + "] " +
+                            "papeles[" + bankPaper.getSize() + "]", new SmokerActor());
                     bankTobacco.popTobacco();
                     bankPaper.popPaper();
+                    actionLogger.log("Le quedan fosforos[infinitos] " +
+                            "tabacos[" + bankTobacco.getSize() + "] " +
+                            "papeles[" + bankPaper.getSize() + "]", new SmokerActor());
 //                    System.out.println("Cigarro armado le quedan infintos fosoforos, " +
 //                            bankTobacco.tobaccos.size() + " tabacos, " + bankPaper.papers.size() +
 //                            " papeles");
-                    actionLogger.log("Armando fósforos[infinitos] " +
-                            "tabacos[" + bankTobacco.getSize() + "] " +
-                            "papeles[" + bankPaper.getSize() + "]", new SmokerActor());
                     smoke(cigarrate);
                 } else {
 //                    System.out.println("No pudo armar el cigarro");
@@ -221,15 +231,9 @@ public class Client {
     public void setInfiniteIngredient() {
         int randomNumber = RandomGenerator.generateNumber();
         switch (randomNumber) {
-            case 0:
-                infiniteIngredient = new Match();
-                break;
-            case 1:
-                infiniteIngredient = new Paper();
-                break;
-            case 2:
-                infiniteIngredient = new Tobacco();
-                break;
+            case 0 -> infiniteIngredient = new Match();
+            case 1 -> infiniteIngredient = new Paper();
+            case 2 -> infiniteIngredient = new Tobacco();
         }
     }
 
