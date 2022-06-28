@@ -27,18 +27,42 @@ public class ActionLogger {
         fileHandler.setFormatter(formatter);
         logger.addHandler(fileHandler);
     }
+
+    /**
+     * Loggea una acción con su actor y la cantidad implicada en la acción.
+     *
+     * @param actionName Nombre de la acción
+     * @param actor      Actor que realiza la acción
+     * @param quantity   Cantidad de ingrediente que usa en la acción
+     */
     public void log(String actionName, Actor actor, int quantity) {
         logger.info("Actor:[" + actor.getName() + "] -> Accion:[" + actionName + "]" + "[" + quantity + "]");
     }
 
+    /**
+     * Loggea una acción con su actor
+     *
+     * @param actionName Nombre de la acción
+     * @param actor      Actor que realiza la acción
+     */
     public void log(String actionName, Actor actor) {
         logger.info("Actor:[" + actor.getName() + "] -> Accion:[" + actionName + "]");
     }
 
+    /**
+     * Loggea una acción
+     *
+     * @param actionName Nombre de la acción
+     */
     public void log(String actionName) {
         logger.info("Actor:[" + "] -> Accion:[" + actionName + "]");
     }
 
+    /**
+     * Loggea una acción con sus actores.
+     * @param actionName Nombre de la acción
+     * @param actors actores implicados en la acción
+     */
     public void log(String actionName, Actor... actors) {
         for (Actor actor : actors) {
             logger.info("Actor:[" + actor.getName() + "] -> Accion:[" + actionName + "]");

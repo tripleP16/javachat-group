@@ -37,7 +37,15 @@ public class Client {
 
     public String messageReceived = "";
 
-
+    /**
+     * Instancia del cliente fumador.
+     * Inicializa buffer de lectura y escritura.
+     * Se le asigna nombre y un ingrediente infinito al cliente, también se inicializan
+     * el buffer de entrada y salida de datos.
+     *
+     * @param socket   Socket que usa el cliente para la conexión con el servidor
+     * @param username Nombre del usuario con el que el servidor lo identificará
+     */
     public Client(Socket socket, String username) {
         try {
             this.socket = socket;
@@ -54,6 +62,13 @@ public class Client {
         }
     }
 
+    /**
+     * Se encarga de enviar un mensaje al servidor.
+     * Si el último mensaje recibido es distinto a "WAIT"
+     * chequea si ya es su segundo intento de pedir el ingrediente que necesita, si se
+     * cumple este caso se manda el mensaje "REFILL" al servidor. En otro caso se envia
+     * "NEED" pidiendo el ingrediente que necesite para armar el cigarro.
+     */
     public void sendMessage() {
         try {
             bufferedWriter.write(username);
@@ -84,6 +99,27 @@ public class Client {
         }
     }
 
+    /**
+     * Escucha los mensajes del servidor en un hilo aparte del principal.
+     * <p>
+     * Mientras el haya conexión con el servidor, escucha los mensajes que vienen del
+     * servidor.
+     * <p>
+     * "Mensaje recibido", descripción
+     * <p>
+     * "WAIT", se está reponiendo un ingrediente y el servidor no admite más pedidos mientras
+     * repone.
+     * <p>
+     * "READY", el servidor ha terminado de reponer el ingrediente que necesita el cliente.
+     * <p>
+     * "-1", no recibió ningún ingrediente
+     * <p>
+     * "0", recibió fósforo
+     * <p>
+     * "1", recibió papel
+     * <p>
+     * "2", recibió tabaco
+     */
     public void listenForMessage() {
         new Thread(() -> {
             String msgFromGroupChat;
@@ -137,6 +173,16 @@ public class Client {
         }).start();
     }
 
+    /**
+     * Arma el cigarro si el cliente tiene los ingredientes necesarios.
+     * <p>
+     * Revisa de que tipo de ingrediente infinito tiene el fumador y chequea los otros dos
+     * ingredientes que necesita para armar el cigarro.
+     * <p>
+     * Si el fumador tiene los ingredientes necesarios procede a armarlo y fumarlo
+     *
+     * @throws InterruptedException se puede interrumpir la ejecución de fumar.
+     */
     public void buildCigarette() throws InterruptedException {
         switch (infiniteIngredient.id) {
             case "TOBACCO":
@@ -204,11 +250,25 @@ public class Client {
 
     }
 
-    private void smoke(Cigarrate cigarrate) throws InterruptedException {
+    /**
+     * Fumar el cigarro.
+     *
+     * @param cigarrete Cigarro armado para fumar.
+     * @throws InterruptedException se puede interrumpir la ejecución de fumar.
+     */
+    private void smoke(Cigarrate cigarrete) throws InterruptedException {
         messageReceived = "WAIT";
-        cigarrate.smoke();
+        cigarrete.smoke();
         messageReceived = "READY";
     }
+
+    /**
+     * Cierra todos los recursos utilizados.
+     *
+     * @param socket         socket utiliza para la conexión del cliente con el servidor.
+     * @param bufferedReader flujo de lectura utilizado para leer los mensajes del cliente.
+     * @param bufferedWriter flujo de escritura utilizado para escribir los mensajes al cliente.
+     */
 
     public void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter) {
         try {
@@ -228,6 +288,9 @@ public class Client {
         }
     }
 
+    /**
+     * Establece aleatoriamente el ingrediente infinito del fumador
+     */
     public void setInfiniteIngredient() {
         int randomNumber = RandomGenerator.generateNumber();
         switch (randomNumber) {
@@ -237,7 +300,12 @@ public class Client {
         }
     }
 
-
+    /**
+     * Punto de entrada del programa del fumador
+     *
+     * @param args parámetros del programan NO SE USAN
+     * @throws IOException en caso de que no se pueda establecer la conexión con el servidor.
+     */
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduce un nombre de usuario para el fumador: ");

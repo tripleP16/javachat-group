@@ -13,6 +13,11 @@ public class Cigarrate {
         this.paper = paper;
     }
 
+    /**
+     * Espera 3 segundos a que se fume el cigarro.
+     *
+     * @throws InterruptedException si se produce un error al esperar.
+     */
     public void smoke() throws InterruptedException {
         System.out.println("FUMANDO........");
         TimeUnit.SECONDS.sleep(3);
