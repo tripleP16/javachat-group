@@ -23,12 +23,12 @@ public class Server {
     public void startServer() {
         startBanks();
         try {
-            while(!serverSocket.isClosed()){
-                Socket socket = serverSocket.accept();
-                System.out.println("A new client has connected");
-                ClientHandler clientHandler = new ClientHandler(socket);
-                Thread thread = new Thread(clientHandler);
-                thread.start();
+            while(!serverSocket.isClosed()){ //Mientras no se cierre el socket el servidor esta escuchando para nuevas conexiones
+                Socket socket = serverSocket.accept(); // Acepta la conexion este metodo espera hasta que llegue un cliente
+                System.out.println("Se ha conectado una persona");
+                ClientHandler clientHandler = new ClientHandler(socket); // Crea una instancia de la clase client handler y le injecta el socket
+                Thread thread = new Thread(clientHandler); // Crea un hilo nuevo para el acceso del cliente
+                thread.start(); // Inicia el hilo
             }
         } catch (IOException e) {
             closeServerSocket();
@@ -36,6 +36,7 @@ public class Server {
     }
 
     public void startBanks() {
+        // Agrega los dos primeros ingredientes a cada banco
         bankMatch.pushMatch(new Match());
         bankMatch.pushMatch(new Match());
         bankTobacco.pushTobacco(new Tobacco());
@@ -54,8 +55,8 @@ public class Server {
     }
 
     public static void main(String[] args) throws IOException {
-        ServerSocket serverSocket = new ServerSocket(8080);
-        Server server = new Server(serverSocket);
-        server.startServer();
+        ServerSocket serverSocket = new ServerSocket(8080); // Iniciamos una conexion del tipo socket en el puerto 8080
+        Server server = new Server(serverSocket); // Creamos el server
+        server.startServer(); // Inicia el servidor
     }
 }
