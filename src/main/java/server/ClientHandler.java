@@ -17,13 +17,13 @@ import java.util.concurrent.TimeUnit;
 
 public class ClientHandler implements Runnable {
 
-    public static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
+    public static ArrayList<ClientHandler> clientHandlers = new ArrayList<>(); //Array estatico de todos los clientes conectados que sirve para el pase de mensajes
     private ActionLogger actionLogger;
     private final SellerActor sellerActor = new SellerActor();
 
     private Socket socket;
-    private BufferedReader bufferedReader;
-    private BufferedWriter bufferedWriter;
+    private BufferedReader bufferedReader; //Canal de entrada de mensajes al servidor
+    private BufferedWriter bufferedWriter; // Canal de salida de mensajes del servidor
 
     private String clientUsername;
 
@@ -33,9 +33,9 @@ public class ClientHandler implements Runnable {
 
             this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            this.clientUsername = bufferedReader.readLine();
-            clientHandlers.add(this);
-            this.actionLogger = new ActionLogger("server-" + clientUsername + "-");
+            this.clientUsername = bufferedReader.readLine(); //obtenemos el username del cliente
+            clientHandlers.add(this); //agrega el cliente al array compartido
+            this.actionLogger = new ActionLogger("server-" + clientUsername + "-"); // se loggea la conexion del cliente
         } catch (IOException e) {
             closeEverything(socket, bufferedWriter, bufferedReader);
         }
@@ -44,26 +44,28 @@ public class ClientHandler implements Runnable {
 
     @Override
     public void run() {
+        //Ejecucion del metodo run del hilo
         String messageFromClient;
-        while (socket.isConnected()) {
+        while (socket.isConnected()) { //ciclo que permitira la escucha mientras el socket este conectado
             try {
-                messageFromClient = bufferedReader.readLine();
+                messageFromClient = bufferedReader.readLine(); //leemos el mensaje del cliente
+                //verificamos que el mensaje sea para insertar y si sera exitosa a traves de un numero random
                 if (messageFromClient.equals("INSERT") && RandomGenerator.generateNumber() > 1) {
                     insertInBank();
-                    broadcastMessageToClients("WAIT");
+                    broadcastMessageToClients("WAIT"); //avisa a los clientes que se pongan en espera
                     TimeUnit.SECONDS.sleep(3);
-                    broadcastMessageToClients("READY");
+                    broadcastMessageToClients("READY"); //notifica a los clientes que termino la ejecucion
                 } else if (messageFromClient.equals("INSERT")) {
                     actionLogger.log("No inserto ingrediente", new SellerActor());
                 }
                 if (messageFromClient.equals("NEED")) {
-                    int result = popBank();
+                    int result = popBank(); //numero que se obtiene pqara ver si obtiene ingrediente y cual es
 
-                    broadcastMessageToClient(String.valueOf(result));
+                    broadcastMessageToClient(String.valueOf(result)); //notifica al cliente el resultado
                 }
 
                 if (messageFromClient.equals("REFILL")) {
-                    broadcastMessageToSeller(messageFromClient);
+                    broadcastMessageToSeller(messageFromClient); // notifica al seller para que reponga ingrediente
                 }
                 TimeUnit.SECONDS.sleep(3);
 
@@ -78,6 +80,7 @@ public class ClientHandler implements Runnable {
     }
 
 
+    //Metodo para enviar mensajes al seller
     public void broadcastMessageToSeller(String messageToSend) {
         for (ClientHandler clientHandler : clientHandlers) {
             try {
@@ -93,6 +96,7 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    //metodo para enviar mensajes a los clientes que no son sellers
     public void broadcastMessageToClients(String messageToSend) {
         for (ClientHandler clientHandler : clientHandlers) {
             try {
@@ -107,6 +111,7 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    //metodo para enviar mensajes al mismo cliente
     public void broadcastMessageToClient(String messageToSend) {
         for (ClientHandler clientHandler : clientHandlers) {
             try {
@@ -121,40 +126,40 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    //loggea el estado actual de los bancos
     public void resume() {
-// System.out.println("Quedan: ");
-// System.out.println(Server.bankMatch.matches.size() + " fosforos");
-// System.out.println(Server.bankPaper.papers.size() + " papeles");
-// System.out.println(Server.bankTobacco.tobaccos.size() + " tabacos");
         actionLogger.log("Stock", new PaperBankActor(), Server.bankPaper.getSize());
         actionLogger.log("Stock", new TobaccoBankActor(), Server.bankTobacco.getSize());
         actionLogger.log("Stock", new MatchBankActor(), Server.bankMatch.getSize());
 
     }
 
+    //metodo que obtiene el resultado del pedido de ingredientes
     public int popBank() {
+        //genera un numero al azar
         int randomNumber = RandomGenerator.generateNumber();
         switch (randomNumber) {
-            case 0 -> {
+            case 0 -> { //si es 0 intentara mandar fosforos
                 if (Server.bankMatch.matches.size() > 0) {
-                    Server.bankMatch.popMatch();
-                    resume();
+                    Server.bankMatch.popMatch(); //remueve el fosforo
+                    resume(); //loggea el estado de los bancos
                     return 0;
                 }
-                return -1;
+                return -1; // notifica que no hay suficientes fosforos
             }
-            case 1 -> {
+            case 1 -> { //intenta enviar papel
                 if (Server.bankPaper.papers.size() > 0) {
                     Server.bankPaper.popPaper();
-                    resume();
+                    resume(); //loggea el estado de los bancos
                     return 1;
                 }
                 return -1;
             }
             default -> {
+                //intenta mandar tabacos
                 if (Server.bankTobacco.tobaccos.size() > 0) {
                     Server.bankTobacco.popTobacco();
-                    resume();
+                    resume(); //loggea el estado de los bancos
                     return 2;
                 }
                 return -1;
@@ -162,41 +167,41 @@ public class ClientHandler implements Runnable {
         }
     }
 
+    //metodo para reponer en los bancos
     public void insertInBank() {
         int randomNumber = RandomGenerator.generateNumber();
         switch (randomNumber) {
             case 0 -> {
+                //repone fosforos
                 Server.bankMatch.pushMatch(new Match());
-//                System.out.println(Server.bankMatch.matches.size());
-//                System.out.println("El vendedor repuso 1 fósforo");
                 actionLogger.log("[" + clientUsername +
                         "] repuso fosforo stock: [" + Server.bankMatch.getSize() +
                         "]", sellerActor, 1);
             }
             case 1 -> {
+                //repone papel
                 Server.bankPaper.pushPaper(new Paper());
-//                System.out.println(Server.bankPaper.papers.size());
-//                System.out.println("El vendedor repuso 1 papel");
                 actionLogger.log("[" + clientUsername +
                         "] repuso papel stock: [" + Server.bankPaper.getSize() +
                         "]", sellerActor, 1);
             }
             default -> {
+                //repone tabaco
                 Server.bankTobacco.pushTobacco(new Tobacco());
-//                System.out.println(Server.bankTobacco.tobaccos.size());
-//                System.out.println("El vendedor repuso 1 tabaco");
                 actionLogger.log("[" + clientUsername +
                         "] repuso tabaco stock: [" + Server.bankTobacco.getSize() +
                         "]", sellerActor, 1);
             }
         }
-        resume();
+        resume(); //loggea el estado de los bancos
     }
 
+    //remueve el cliente de la lista de clientes
     public void removeClientHandler() {
         clientHandlers.remove(this);
     }
 
+    //metodo para cerrar el socket y todos los metodos de entrada y salida del socket
     public void closeEverything(Socket socket, BufferedWriter bufferedWriter, BufferedReader bufferedReader) {
         removeClientHandler();
         try {
